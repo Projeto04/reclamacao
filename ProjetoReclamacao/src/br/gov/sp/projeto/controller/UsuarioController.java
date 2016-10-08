@@ -48,7 +48,15 @@ public class UsuarioController {
 	@RequestMapping("cadastroCidadao")
 	public String cadastroCidadao( Usuario user , Model model  ){
 		user.setTipo( Usuario.CIDADAO );
-		//user.setDataNascimento( Calendar.getInstance() );
+		userService.cadastrar(user);
+		
+		model.addAttribute("user", user );
+		return "ok";
+	}
+	
+	@RequestMapping("cadastroAvaliador")
+	public String cadastroAvaliador( Usuario user , Model model  ){
+		user.setTipo( Usuario.AVALIADOR );
 		userService.cadastrar(user);
 		
 		model.addAttribute("user", user );

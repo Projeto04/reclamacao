@@ -1,6 +1,6 @@
 package br.gov.sp.projeto.model;
 
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -50,17 +50,17 @@ public class Usuario {
 	@NotNull
 	private String nome;
 	
-	@Column(length=15, nullable=false)
+	@Column(length=15, nullable=false , unique = true )
 	private String cpf;
 	
 	@Column(nullable=false)
 	@Temporal(TemporalType.DATE)
-	private Calendar dataNascimento;
+	private Date dataNascimento;
 	
 	@Column(length=10, nullable=false)
 	private String sexo;
 	
-	@Column(length=30, nullable=false)
+	@Column(length=30, nullable=false , unique = true )
 	private String username;
 	
 	@Column(length=32, nullable=false)
@@ -105,20 +105,20 @@ public class Usuario {
 		this.cpf = cpf;
 	}
 
-	public Calendar getDataNascimento() {
-		return dataNascimento;
-	}
-
-	public void setDataNascimento(Calendar dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
-
 	public String getSexo() {
 		return sexo;
 	}
 
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
+	}
+
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public String getUsername() {
