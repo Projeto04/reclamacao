@@ -7,13 +7,13 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 		<!-- provedor/implementacao do JPA -->
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<!-- entidade mapeada -->
-		<class>br.gov.projeto.model.Area</class>
-		<class>br.gov.projeto.model.Comentario</class>
-		<class>br.gov.projeto.model.Contato</class>
-		<class>br.gov.projeto.model.Endereco</class>
-		<class>br.gov.projeto.model.Postagem</class>
-		<class>br.gov.projeto.model.TipoPostagem</class>
-		<class>br.gov.projeto.model.Usuario</class>
+		<class>br.gov.sp.projeto.model.Area</class>
+		<class>br.gov.sp.projeto.model.Comentario</class>
+		<class>br.gov.sp.projeto.model.Contato</class>
+		<class>br.gov.sp.projeto.model.Endereco</class>
+		<class>br.gov.sp.projeto.model.Postagem</class>
+		<class>br.gov.sp.projeto.model.TipoPostagem</class>
+		<class>br.gov.sp.projeto.model.Usuario</class>
 		<properties>
 			<!-- dados da conexao foram migrados para o spring-context.xml na configuracao 
 				do datasource -->
@@ -22,7 +22,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
 			<!-- atualiza o banco, gera as tabelas se for preciso -->
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 		</properties>
 	</persistence-unit>
 </persistence>

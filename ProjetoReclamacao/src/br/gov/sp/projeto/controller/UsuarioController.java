@@ -1,6 +1,4 @@
-package br.gov.projeto.controller;
-
-import java.util.Calendar;
+package br.gov.sp.projeto.controller;
 
 import javax.transaction.Transactional;
 
@@ -49,8 +47,8 @@ public class UsuarioController {
 	
 	@RequestMapping("cadastroCidadao")
 	public String cadastroCidadao( Usuario user , Model model  ){
-		user.setTipo( "CIDADAO" );
-		user.setDataNascimento( Calendar.getInstance() );
+		user.setTipo( Usuario.CIDADAO );
+		//user.setDataNascimento( Calendar.getInstance() );
 		userService.cadastrar(user);
 		
 		model.addAttribute("user", user );

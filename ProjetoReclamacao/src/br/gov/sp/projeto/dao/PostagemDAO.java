@@ -1,11 +1,11 @@
-package br.gov.projeto.DAO;
+package br.gov.sp.projeto.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
-import br.gov.projeto.model.Postagem;
+import br.gov.sp.projeto.model.Postagem;
 
 @Repository
 public class PostagemDAO {

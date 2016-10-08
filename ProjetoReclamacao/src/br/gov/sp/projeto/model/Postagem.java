@@ -1,4 +1,4 @@
-package br.gov.projeto.model;
+package br.gov.sp.projeto.model;
 
 import java.util.Arrays;
 import java.util.Calendar;

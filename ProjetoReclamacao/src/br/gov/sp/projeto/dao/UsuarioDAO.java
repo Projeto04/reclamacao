@@ -1,4 +1,4 @@
-package br.gov.projeto.DAO;
+package br.gov.sp.projeto.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -17,7 +17,7 @@ public class UsuarioDAO {
 	}
 	
 	public void atualizar(Usuario user){
-		manager.merge(manager.find(Usuario.class, user.getUsuario()));
+		manager.merge(manager.find(Usuario.class, user.getUsername()));
 	}
 	
 	public Usuario selecionar( Usuario user){

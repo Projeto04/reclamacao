@@ -1,4 +1,4 @@
-package br.gov.projeto.model;
+package br.gov.sp.projeto.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -65,11 +65,6 @@ public class Contato {
 	}
 
 	@Override
-	public String toString() {
-		return "Contato [tipoContato=" + tipoContato + ", usuario=" + usuario + ", valor=" + valor + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -110,6 +105,11 @@ public class Contato {
 		} else if (!valor.equals(other.valor))
 			return false;
 		return true;
+	}
+	
+	@Override
+	public String toString() {
+		return "Contato [tipoContato=" + tipoContato + ", usuario=" + usuario + ", valor=" + valor + "]";
 	}
 
 }

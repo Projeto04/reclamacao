@@ -1,4 +1,4 @@
-package br.gov.projeto.model;
+package br.gov.sp.projeto.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,15 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Area {
+public class TipoContato {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="idArea")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "idTipoContato")
 	private Long id;
-	
-	@Column(name="nmArea", length=50, nullable=false)
-	private String nome;
+
+	@Column(length = 10, nullable = false)
+	private String tipo;
 
 	public Long getId() {
 		return id;
@@ -25,17 +25,17 @@ public class Area {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getTipo() {
+		return tipo;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	@Override
 	public String toString() {
-		return "Area [id=" + id + ", nome=" + nome + "]";
+		return "TipoContato [id=" + id + ", tipo=" + tipo + "]";
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class Area {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
 		return result;
 	}
 
@@ -55,16 +55,16 @@ public class Area {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Area other = (Area) obj;
+		TipoContato other = (TipoContato) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (nome == null) {
-			if (other.nome != null)
+		if (tipo == null) {
+			if (other.tipo != null)
 				return false;
-		} else if (!nome.equals(other.nome))
+		} else if (!tipo.equals(other.tipo))
 			return false;
 		return true;
 	}

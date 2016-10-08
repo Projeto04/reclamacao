@@ -1,21 +1,25 @@
-package br.gov.projeto.model;
+package br.gov.sp.projeto.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
-public class TipoContato {
+public class Area {
+	
+	@Transient
+	public static final String NULL = "NULL";
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "idTipoContato")
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="idArea")
 	private Long id;
-
-	@Column(length = 10, nullable = false)
-	private String tipo;
+	
+	@Column(name="nmArea", length=50, nullable=false)
+	private String nome;
 
 	public Long getId() {
 		return id;
@@ -25,17 +29,17 @@ public class TipoContato {
 		this.id = id;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	@Override
 	public String toString() {
-		return "TipoContato [id=" + id + ", tipo=" + tipo + "]";
+		return "Area [id=" + id + ", nome=" + nome + "]";
 	}
 
 	@Override
@@ -43,7 +47,7 @@ public class TipoContato {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
 
@@ -55,16 +59,16 @@ public class TipoContato {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TipoContato other = (TipoContato) obj;
+		Area other = (Area) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (tipo == null) {
-			if (other.tipo != null)
+		if (nome == null) {
+			if (other.nome != null)
 				return false;
-		} else if (!tipo.equals(other.tipo))
+		} else if (!nome.equals(other.nome))
 			return false;
 		return true;
 	}

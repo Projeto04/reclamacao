@@ -1,4 +1,4 @@
-package br.gov.projeto.service;
+package br.gov.sp.projeto.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

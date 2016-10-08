@@ -1,4 +1,4 @@
-package br.gov.projeto.model;
+package br.gov.sp.projeto.model;
 
 import java.util.Calendar;
 
@@ -13,12 +13,32 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 
 
 @Entity
 public class Usuario {
+	/*
+	 * @Transient informa para o hibernate 
+	 * 		que este atributo nao deve ser persistido
+	 */
+	
+	@Transient
+	public static final int	CIDADAO 	= 0;
+	
+	@Transient
+	public static final int	AVALIADOR 	= 1;
+	
+	@Transient
+	public static final int SUPERVISOR 	= 2;
+	
+	@Transient
+	public static final String 	MASCULINO 	= "MASCULINO";
+	
+	@Transient
+	public static final String FEMININO 	= "FEMININO";
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -41,7 +61,7 @@ public class Usuario {
 	private String sexo;
 	
 	@Column(length=30, nullable=false)
-	private String usuario;
+	private String username;
 	
 	@Column(length=32, nullable=false)
 	private String senha;
@@ -102,11 +122,11 @@ public class Usuario {
 	}
 
 	public String getUsername() {
-		return usuario;
+		return username;
 	}
 
 	public void setUsername(String username) {
-		this.usuario = username;
+		this.username = username;
 	}
 
 	public String getSenha() {
@@ -145,7 +165,7 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento
-				+ ", sexo=" + sexo + ", username=" + usuario + ", senha=" + senha + ", tipo=" + tipo + ", area=" + area
+				+ ", sexo=" + sexo + ", username=" + username + ", senha=" + senha + ", tipo=" + tipo + ", area=" + area
 				+ ", endereco=" + endereco  + "]";
 	}
 
@@ -162,7 +182,7 @@ public class Usuario {
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
 		result = prime * result + ((sexo == null) ? 0 : sexo.hashCode());
 		result = prime * result + tipo;
-		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
 
@@ -217,10 +237,10 @@ public class Usuario {
 			return false;
 		if (tipo != other.tipo)
 			return false;
-		if (usuario == null) {
-			if (other.usuario != null)
+		if (username == null) {
+			if (other.username != null)
 				return false;
-		} else if (!usuario.equals(other.usuario))
+		} else if (!username.equals(other.username))
 			return false;
 		return true;
 	}
